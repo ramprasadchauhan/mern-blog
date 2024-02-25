@@ -51,7 +51,7 @@ const SignUp = () => {
           </Link>
           <p className="text-sm mt-5">
             This is a demo project. You can sign up with your email and password
-            or wih google
+            or with google
           </p>
         </div>
         {/* right */}
@@ -101,7 +101,7 @@ const SignUp = () => {
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Have an account</span>
-            <Link to="/sign-in" className="text-blue-500">
+            <Link to="/sign-in" className="text-blue-500 hover:text-pink-600">
               Sign In
             </Link>
           </div>

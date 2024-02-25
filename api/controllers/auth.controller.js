@@ -4,7 +4,7 @@ import { errorHandler } from "../utils/error.js";
 import Jwt from "jsonwebtoken";
 
 export const signup = async (req, res, next) => {
-  //   console.log(req.body);
+  console.log(req.body);
   const { username, email, password } = req.body;
   if (
     !username ||
@@ -41,7 +41,7 @@ export const signin = async (req, res, next) => {
   try {
     const validUser = await User.findOne({ email });
     if (!validUser) {
-      next(errorHandler(404, "User not found"));
+      return next(errorHandler(404, "User not found"));
     }
     const { password: pass, ...rest } = validUser._doc;
     const validPassword = bcryptjs.compareSync(password, validUser.password);

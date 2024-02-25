@@ -63,7 +63,7 @@ const SignIn = () => {
           </Link>
           <p className="text-sm mt-5">
             This is a demo project. You can sign in with your email and password
-            or wih google
+            or with google
           </p>
         </div>
         {/* right */}
