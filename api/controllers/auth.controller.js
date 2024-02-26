@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
-import Jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 export const signup = async (req, res, next) => {
   console.log(req.body);
@@ -48,7 +48,7 @@ export const signin = async (req, res, next) => {
     if (!validPassword) {
       return next(errorHandler(400, "Invalid password"));
     }
-    const token = Jwt.sign(
+    const token = jwt.sign(
       {
         id: validUser._id,
       },
@@ -92,7 +92,7 @@ export const google = async (req, res, next) => {
         profilePicture: googlePhotoUrl,
       });
       await newUser.save();
-      const token = Jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
       const { password, ...rest } = user._doc;
       res
         .status(200)
