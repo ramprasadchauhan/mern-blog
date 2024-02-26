@@ -20,7 +20,7 @@ import {
   updateStart,
   updateSuccess,
 } from "../redux/user/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const DashProfile = () => {
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
@@ -32,7 +32,7 @@ const DashProfile = () => {
   const [updateUserError, setUpdateUserError] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const filePickerRef = useRef();
-  const { currentUser, error } = useSelector((state) => state.user);
+  const { currentUser, error, loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleImageChange = (e) => {
@@ -233,9 +233,25 @@ const DashProfile = () => {
           placeholder="password"
           onChange={handleChange}
         />
-        <Button type="submit" gradientDuoTone="purpleToBlue" outline>
-          Update
+        <Button
+          type="submit"
+          gradientDuoTone="purpleToBlue"
+          outline
+          disabled={loading || imageFileUploading}
+        >
+          {loading ? "Loading..." : "Update"}
         </Button>
+        {currentUser.isAdmin && (
+          <Link to="/create-post">
+            <Button
+              type="button"
+              gradientDuoTone="purpleToPink"
+              className="w-full"
+            >
+              Create a post
+            </Button>
+          </Link>
+        )}
       </form>
       <div className="text-red-500 flex justify-between mt-5">
         <span onClick={() => setShowModal(true)} className="cursor-pointer">
