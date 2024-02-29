@@ -29,11 +29,11 @@ const FooterComp = () => {
               <Footer.Title title="About" />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href="https://www.100jsprojects.com"
+                  href="https://github.com/ramprasadchauhan/portfolio"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  100 js projects
+                  Portfolio
                 </Footer.Link>
                 <Footer.Link
                   href="/about"

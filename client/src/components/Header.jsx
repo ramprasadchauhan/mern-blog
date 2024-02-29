@@ -90,7 +90,7 @@ const Header = () => {
             <Dropdown.Header>
               <span className="block text-sm">@{currentUser.username} </span>
               <span className="block text-sm truncate">
-                {currentUser.email}{" "}
+                {currentUser.email}
               </span>
             </Dropdown.Header>
             <Link to={"/dashboard?tab=profile"}>
@@ -110,13 +110,19 @@ const Header = () => {
       </div>
       <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={"div"}>
-          <Link to="/">Home</Link>
+          <Link className="hover:text-pink-500" to="/">
+            Home
+          </Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/about"} as={"div"}>
-          <Link to="/about">About</Link>
+          <Link className="hover:text-pink-500" to="/about">
+            About
+          </Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/projects"} as={"div"}>
-          <Link to="/projects">Projects</Link>
+          <Link className="hover:text-pink-500" to="/projects">
+            Projects
+          </Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
