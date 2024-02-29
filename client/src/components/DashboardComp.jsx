@@ -115,7 +115,7 @@ const DashboardComp = () => {
           <div className="flex gap-2 text-sm">
             <span className="text-green-500 flex items-center">
               <HiArrowNarrowUp />
-              {lastMonthUsers}
+              {lastMonthPosts}
             </span>
             <div className="text-gray-500"> Last month</div>
           </div>
