@@ -82,6 +82,13 @@ const CommentSection = ({ postId }) => {
       console.log(error.message);
     }
   };
+  const handleEdit = async (comment, editedContent) => {
+    setComments(
+      comments.map((c) =>
+        c._id === comment._id ? { ...c, content: editedContent } : c
+      )
+    );
+  };
 
   console.log(comments);
   return (
@@ -155,6 +162,7 @@ const CommentSection = ({ postId }) => {
                 key={comment._id}
                 comment={comment}
                 onLike={handleLike}
+                onEdit={handleEdit}
               />
             );
           })}
